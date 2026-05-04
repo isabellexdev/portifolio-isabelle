@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6rem 0 4rem;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 55% at 50% 40%,
+    rgba(168, 85, 247, 0.22) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.tag {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--purple-light);
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.name {
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 1;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.subtitle {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btnPrimary,
+.btnSecondary {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btnPrimary {
+  background: var(--purple-deep);
+  color: white;
+}
+
+.btnPrimary:hover {
+  background: var(--purple-main);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--purple-glow);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--purple-main);
+  border: 1px solid var(--purple-main);
+}
+
+.btnSecondary:hover {
+  color: var(--purple-light);
+  border-color: var(--purple-light);
+  transform: translateY(-2px);
+}
+
+.scrollWrap {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scrollLabel {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+}
+
+.scrollDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--purple-main);
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    text-align: center;
+  }
+}
