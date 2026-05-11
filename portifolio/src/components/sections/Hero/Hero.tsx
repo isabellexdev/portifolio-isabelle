@@ -5,7 +5,7 @@ export default function Hero() {
     <section className={styles.hero} id="inicio" aria-label="Apresentação">
       <div className={styles.glow} aria-hidden="true" />
       <div className={`container ${styles.content}`}>
-        <p className={`${styles.tag} animateFadeIn`}>&lt; desenvolvedora junior /&gt;</p>
+        <p className={`${styles.tag} animateFadeIn`}>&lt; Desenvolvedora Front-End Junior /&gt;</p>
         <h1 className={`${styles.name} animateFadeIn`}>Isabelle Santana</h1>
         <p className={`${styles.subtitle} animateFadeIn`}>
           Construo interfaces que transformam ideias em experiências coesas — com clareza, acessibilidade e intenção em cada detalhe.

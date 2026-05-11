@@ -47,14 +47,6 @@ export default function About() {
                 <span className={styles.statLabel}>curiosidade por aprender</span>
               </li>
             </ul>
-            <a
-              href="/cv.pdf"
-              className={styles.cvBtn}
-              aria-label="Download do currículo em PDF — adicione o arquivo em public/cv.pdf"
-            >
-              <Download size={18} aria-hidden />
-              Download CV
-            </a>
           </aside>
         </div>
       </div>

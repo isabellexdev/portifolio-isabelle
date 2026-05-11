@@ -17,7 +17,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Isabelle Santana',
   description:
-    'Portfólio de Isabelle Santana — desenvolvedora junior com foco em React, Next.js e TypeScript.',
+    'Portfólio de Isabelle Santana — Desenvolvedora Front-End Junior com foco em React, Next.js e TypeScript.',
   keywords: ['front-end', 'react', 'next.js', 'typescript', 'portfólio', 'desenvolvedora'],
   authors: [{ name: 'Isabelle Santana' }],
   openGraph: {
