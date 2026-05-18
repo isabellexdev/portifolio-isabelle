@@ -1,18 +1,14 @@
-import { Download } from 'lucide-react';
+import { Download, BookOpen, Brain, Clock } from 'lucide-react';
 import styles from './About.module.css';
 
 export default function About() {
   return (
     <section className={styles.about} id="sobre" aria-labelledby="about-heading">
       <div className="container">
-        <h2 id="about-heading" className={styles.heading}>
-          Sobre mim
-        </h2>
+        <h2 id="about-heading" className={styles.heading}>Sobre mim</h2>
         <div className={styles.grid}>
           <div className={styles.textCol}>
-            <p className={styles.paragraph}>
-              Olá! Eu sou a Isabelle 👋
-            </p>
+            <p className={styles.paragraph}>Olá! Eu sou a Isabelle 👋</p>
             <p className={styles.paragraph}>
               Sou <span className={styles.highlight}>desenvolvedora front-end júnior</span>, apaixonada por tecnologia, design e por transformar ideias em experiências digitais funcionais e intuitivas.
             </p>
@@ -25,26 +21,41 @@ export default function About() {
             <p className={styles.paragraph}>
               Estou em constante aprendizado, buscando evoluir minhas habilidades e construir projetos que reflitam minha criatividade, dedicação e crescimento na área de desenvolvimento.
             </p>
-            <p className={styles.paragraph}>
-              Meu objetivo é me tornar uma desenvolvedora cada vez mais completa, criando soluções que impactem positivamente as pessoas.
-            </p>
-            <p className={styles.paragraph}>
-              Seja bem-vindo(a) ao meu portfólio!
-            </p>
+            <p className={styles.paragraph}>Seja bem-vindo(a) ao meu portfólio!</p>
+
+            <a              
+              href="/curriculo.pdf"
+              download
+              className={styles.cvBtn}
+              aria-label="Baixar currículo">
+              <Download size={18} />
+              Baixar Currículo
+            </a>
           </div>
+
           <aside className={styles.card} aria-label="Resumo">
+            <p className={styles.cardTitle}>Em números</p>
             <ul className={styles.stats}>
-              <li>
-                <span className={styles.statValue}>1+</span>
-                <span className={styles.statLabel}>ano estudando dev</span>
+              <li className={styles.statItem}>
+                <Clock size={20} className={styles.statIcon} />
+                <div>
+                  <span className={styles.statValue}>1+</span>
+                  <span className={styles.statLabel}>ano estudando dev</span>
+                </div>
               </li>
-              <li>
-                <span className={styles.statValue}>100%</span>
-                <span className={styles.statLabel}>dedicação aos estudos</span>
+              <li className={styles.statItem}>
+                <BookOpen size={20} className={styles.statIcon} />
+                <div>
+                  <span className={styles.statValue}>100%</span>
+                  <span className={styles.statLabel}>dedicação aos estudos</span>
+                </div>
               </li>
-              <li>
-                <span className={styles.statValue}>∞</span>
-                <span className={styles.statLabel}>curiosidade por aprender</span>
+              <li className={styles.statItem}>
+                <Brain size={20} className={styles.statIcon} />
+                <div>
+                  <span className={styles.statValue}>∞</span>
+                  <span className={styles.statLabel}>curiosidade por aprender</span>
+                </div>
               </li>
             </ul>
           </aside>

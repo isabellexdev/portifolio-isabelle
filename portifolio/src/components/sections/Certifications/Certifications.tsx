@@ -5,7 +5,7 @@ interface Certification {
   name: string;
   platform: string;
   year: string;
-  file: string; 
+  file: string;
 }
 
 const certifications: Certification[] = [
@@ -56,27 +56,33 @@ const certifications: Certification[] = [
 export default function Certifications() {
   return (
     <section className={styles.section} id="certificacoes" aria-labelledby="cert-heading">
-      <div className="container">
-        <h2 id="cert-heading" className={styles.heading}>
-          Certificações
-        </h2>
-        <p className={styles.intro}>Cursos e certificados que marcam minha trajetória de estudos.</p>
-        <ul className={styles.list}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2 id="cert-heading" className={styles.heading}>Certificações</h2>
+          <p className={styles.intro}>Cursos e certificados que marcam minha trajetória de estudos.</p>
+        </div>
+
+        <ul className={styles.grid}>
           {certifications.map((cert) => (
             <li key={cert.name} className={styles.card}>
-              <div className={styles.body}>
-                <p className={styles.name}>{cert.name}</p>
-                <p className={styles.meta}>
-                  {cert.platform} · {cert.year}
-                </p>
+              <div className={styles.cardInner}>
+                <div className={styles.body}>
+                  <p className={styles.name}>{cert.name}</p>
+                  <p className={styles.meta}>{cert.platform} · {cert.year}</p>
+                </div>
+                <a
+                  href={`/certificados/${cert.file}`}
+                  download
+                  className={styles.downloadBtn}
+                  aria-label={`Baixar certificado: ${cert.name}`}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 3v13M5 16l7 7 7-7" />
+                    <line x1="3" y1="21" x2="21" y2="21" />
+                  </svg>
+                  Baixar
+                </a>
               </div>
-              <a
-                href={`/certificados/${cert.file}`}
-                download
-                className={styles.downloadBtn}
-                aria-label={`Baixar certificado ${cert.name}`}
-              >
-              </a>
             </li>
           ))}
         </ul>

@@ -1,7 +1,8 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 110vh;
   display: flex;
+  flex-direction: column; /* adiciona isso */
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -134,4 +135,47 @@
   .btnSecondary {
     text-align: center;
   }
+}
+
+.marqueeWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0 1rem;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  margin-top: 25px;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.marqueeItem {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 1.4rem; /* era 0.9rem */
+  font-weight: 600;  /* era 500 */
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding: 0.4rem 1.5rem;
+  transition: color 0.2s;
+}
+
+.marqueeItem:hover {
+  color: var(--purple-light);
+}
+
+.marqueeDiv {
+  color: var(--purple-main);
+  margin-left: 1.2rem;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }

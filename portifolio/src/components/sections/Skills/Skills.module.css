@@ -1,6 +1,7 @@
 .skills {
-  padding: 5rem 0;
+  padding: 5rem 0 3rem;
   background: var(--bg-primary);
+  overflow: hidden;
 }
 
 .heading {
@@ -12,75 +13,125 @@
 .intro {
   font-family: var(--font-poppins), system-ui, sans-serif;
   color: var(--text-secondary);
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   max-width: 32rem;
   line-height: 1.7;
 }
 
-.columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-}
+/* ── Carousel ──────────────────────────── */
 
-.group {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.subheading {
-  font-size: 1.75rem;
-  color: var(--purple-light);
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.name {
-  font-family: var(--font-poppins), system-ui, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.percent {
-  font-family: var(--font-poppins), system-ui, sans-serif;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+.carouselOuter {
+  width: 100%;
+  overflow: hidden;
+  /* soft fade edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
 .track {
-  height: 8px;
-  border-radius: 999px;
-  background: var(--bg-card);
-  overflow: hidden;
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: scroll 28s linear infinite;
 }
 
-.fill {
-  height: 100%;
-  border-radius: 999px;
-  background: var(--purple-main);
-  transition: width 0.5s ease;
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-@media (max-width: 768px) {
-  .columns {
-    grid-template-columns: 1fr;
+/* ── Card ──────────────────────────────── */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 148px;
+  padding: 1.5rem 1rem 1.25rem;
+  background: var(--bg-card, #1a1025);
+  border: 1px solid rgba(138, 92, 246, 0.2);
+  border-radius: 16px;
+  cursor: default;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  flex-shrink: 0;
+}
+
+.card:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(138, 92, 246, 0.18);
+}
+
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cardName {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+/* ── Ring ──────────────────────────────── */
+
+.ringWrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+}
+
+.ringProgress {
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.ringLabel {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #c084fc;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ────────────────────────── */
+
+@media (max-width: 600px) {
+  .card {
+    width: 124px;
+    padding: 1.25rem 0.75rem 1rem;
+  }
+
+  .track {
+    gap: 1rem;
   }
 }

@@ -1,4 +1,11 @@
+"use client";
 import styles from './Hero.module.css';
+
+const skills = [
+  'React', 'Next.js', 'TypeScript', 'CSS Modules', 'UI Design',
+  'Acessibilidade', 'JavaScript', 'Figma', 'React Native', 'Git','GitHub',
+  'HTML5', 'Responsividade', 'UX Writing', 'Expo', 'Styled Components',
+];
 
 export default function Hero() {
   return (
@@ -11,17 +18,19 @@ export default function Hero() {
           Construo interfaces que transformam ideias em experiências coesas — com clareza, acessibilidade e intenção em cada detalhe.
         </p>
         <div className={`${styles.actions} animateFadeIn`}>
-          <a href="#projetos" className={styles.btnPrimary}>
-            Ver Projetos
-          </a>
-          <a href="#sobre" className={styles.btnSecondary}>
-            Sobre Mim
-          </a>
+          <a href="#projetos" className={styles.btnPrimary}>Ver Projetos</a>
+          <a href="#sobre" className={styles.btnSecondary}>Sobre Mim</a>
         </div>
       </div>
-      <div className={styles.scrollWrap} aria-hidden="true">
-        <span className={styles.scrollLabel}>scroll</span>
-        <div className={`${styles.scrollDot} animateGlow`} />
+
+      <div className={styles.marqueeWrap} aria-hidden="true">
+        <div className={styles.marqueeTrack}>
+          {[...skills, ...skills].map((skill, i) => (
+            <span key={i} className={styles.marqueeItem}>
+              {skill} <span className={styles.marqueeDiv}>✦</span>
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
